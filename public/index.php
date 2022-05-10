@@ -1,6 +1,8 @@
 <?php
 
+use App\Sandbox;
+
 require __DIR__ . '/../vendor/autoload.php';
 
-$test = new \App\Test();
-$test->execute();
+$sandbox = new Sandbox();
+$sandbox->execute();
