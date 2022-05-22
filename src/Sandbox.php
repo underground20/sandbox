@@ -9,6 +9,7 @@ use App\Strategy\Behavior\MuteQuack;
 use App\Strategy\Behavior\Quack;
 use App\Strategy\Behavior\Waltz;
 use App\Strategy\Duck;
+use App\Strategy\DuckCollection;
 use App\Strategy\MallardDuck;
 use App\Strategy\RedheadDuck;
 use App\Strategy\WoodDuck;
@@ -24,10 +25,13 @@ class Sandbox
         $redHeadDuck = new RedheadDuck($quack, new FlyWithWings(), new Minuet());
         $woodDuck = new WoodDuck(new MuteQuack(), new FlyNoWay());
 
-        $ducks = [$mallardDuck, $redHeadDuck, $woodDuck];
+        $duckCollection = new DuckCollection();
+        $duckCollection->addDuck($mallardDuck);
+        $duckCollection->addDuck($redHeadDuck);
+        $duckCollection->addDuck($woodDuck);
 
         /** @var Duck $duck */
-        foreach ($ducks as $duck) {
+        foreach ($duckCollection as $duck) {
             echo $duck->display() . '<br>';
             $duck->quack();
             echo '<br>';
@@ -36,6 +40,8 @@ class Sandbox
             $duck->dance();
             echo '<hr>';
         }
+
+        $duckCollection->removeDuck($woodDuck);
     }
 
     public function executeFunctional(): void
