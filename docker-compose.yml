@@ -31,6 +31,8 @@ services:
             POSTGRES_PASSWORD: test
         volumes:
             - db:/var/lib/postgresql/data
+            - ./sql/dump/demo.sql:/demo.sql
+            - ./sql/dump/init.sql:/docker-entrypoint-initdb.d/init.sql
         ports:
             - "54321:5432"
 volumes:
