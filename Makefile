@@ -1,11 +1,16 @@
-docker-up:
+init: down build
+
+up:
 	docker-compose up -d
 
-docker-build:
+build:
 	docker-compose up -d --build
 
-docker-down:
-	docker-compose down --remove-orphans
+down:
+	docker-compose down -v --remove-orphans
 
 composer-install:
 	docker-compose exec php-cli composer install
+
+fill-db:
+	docker-compose exec postgres psql -U app -d demo -f demo.sql
