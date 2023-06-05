@@ -25,14 +25,16 @@ services:
             - ./:/var/www/app
         tty: true
     postgres:
-        image: postgres:14-alpine
+        image: postgres:15-alpine
         environment:
-            POSTGRES_USER: app
-            POSTGRES_PASSWORD: test
+            POSTGRES_USER: ${DB_USER}
+            POSTGRES_PASSWORD: ${DB_PASSWORD}
+            POSTGRES_DB: ${DB_NAME}
+        env_file:
+            - .env
         volumes:
             - db:/var/lib/postgresql/data
-            - ./sql/dump/demo.sql:/demo.sql
-            - ./sql/dump/init.sql:/docker-entrypoint-initdb.d/init.sql
+            - ./sql/dump:/dump
         ports:
             - "54321:5432"
 volumes:
