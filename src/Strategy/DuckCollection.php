@@ -4,8 +4,10 @@ namespace App\Strategy;
 
 use Traversable;
 
+/** @implements \IteratorAggregate<Duck> */
 class DuckCollection implements \IteratorAggregate
 {
+    /** @var \SplObjectStorage<Duck, null> */
     private \SplObjectStorage $ducks;
 
     public function __construct()
