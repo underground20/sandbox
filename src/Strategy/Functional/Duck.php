@@ -16,33 +16,39 @@ abstract class Duck
 
     public function fly(): void
     {
-        $this->flyBehavior->bindTo($this)();
+        /** @var Closure $fly */
+        $fly = $this->flyBehavior->bindTo($this);
+        $fly();
     }
 
     public function quack(): void
     {
-        $this->quackBehavior->bindTo($this)();
+        /** @var Closure $quack */
+        $quack = $this->quackBehavior->bindTo($this);
+        $quack();
     }
 
     public function dance(): void
     {
         if ($this->danceBehavior !== null) {
-            $this->danceBehavior->bindTo($this)();
+            /** @var Closure $dance */
+            $dance = $this->danceBehavior->bindTo($this);
+            $dance();
         }
     }
 
     public function changeFlyBehavior(callable $flyBehavior): void
     {
-        $this->flyBehavior = $flyBehavior;
+        $this->flyBehavior = $flyBehavior(...);
     }
 
     public function changeQuackBehavior(callable $quackBehavior): void
     {
-        $this->quackBehavior = $quackBehavior;
+        $this->quackBehavior = $quackBehavior(...);
     }
 
     public function changeDanceBehavior(callable $danceBehavior): void
     {
-        $this->danceBehavior = $danceBehavior;
+        $this->danceBehavior = $danceBehavior(...);
     }
 }

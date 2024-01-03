@@ -14,3 +14,6 @@ composer-install:
 
 fill-db:
 	docker-compose exec postgres psql -U app -d demo -f demo.sql
+
+phpstan-check:
+	docker-compose exec php-cli ./vendor/bin/phpstan analyse --ansi
