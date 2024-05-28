@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Strategy;
+namespace App\Patterns\Strategy;
 
 class WoodDuck extends Duck
 {

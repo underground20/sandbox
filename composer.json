@@ -8,7 +8,7 @@
             "App\\": "src"
         },
         "files": [
-            "src/Strategy/Functional/BehaviorFunction.php"
+            "src/Patterns/Strategy/Functional/BehaviorFunction.php"
         ]
     },
     "require": {

@@ -17,3 +17,6 @@ fill-db:
 
 phpstan-check:
 	docker compose exec php-cli ./vendor/bin/phpstan analyse --ansi
+
+composer-validate:
+	docker compose exec php-cli composer validate

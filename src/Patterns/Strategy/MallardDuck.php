@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Strategy\Functional;
+namespace App\Patterns\Strategy;
 
 class MallardDuck extends Duck
 {
