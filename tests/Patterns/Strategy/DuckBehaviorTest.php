@@ -20,10 +20,9 @@ class DuckBehaviorTest extends TestCase
     public static function ducks(): array
     {
         return [
-            [new MallardDuck((new Quack())->quack(...), (new FlyWithWings())->fly(...), (new Waltz())->dance(...)), '(mallard duck) quack: quack, fly: flights count 1, dance: waltz'],
-            [new RedheadDuck((new Quack())->quack(...), (new FlyWithWings())->fly(...), (new Minuet())->dance(...)), '(red head duck) quack: quack, fly: flights count 2, dance: minuet'],
-            [new RedheadDuck(\quack(...), \flyWithWings(...)), '(red head duck) quack: quack, fly: flights count 1, dance: -'],
-            [new WoodDuck((new MuteQuack())->quack(...), (new FlyNoWay())->fly(...)), '(wood duck) quack: -, fly: -, dance: -'],
+            [new MallardDuck(new Quack(), new FlyWithWings(), new Waltz()), '(mallard duck) quack: quack, fly: flights count 1, dance: waltz'],
+            [new RedheadDuck(new Quack(), new FlyWithWings(), new Minuet()), '(red head duck) quack: quack, fly: flights count 2, dance: minuet'],
+            [new WoodDuck(new MuteQuack(), new FlyNoWay()), '(wood duck) quack: -, fly: -, dance: -'],
         ];
     }
 
@@ -40,12 +39,12 @@ class DuckBehaviorTest extends TestCase
 
     public function testChangeBehavior(): void
     {
-        $mallardDuck = new MallardDuck((new Quack())->quack(...), (new FlyWithWings())->fly(...), (new Waltz())->dance(...));
+        $mallardDuck = new MallardDuck(new Quack(), new FlyWithWings(), new Waltz());
         $quackResult = $mallardDuck->quack();
 
         $this->assertEquals('quack', $quackResult);
 
-        $mallardDuck->changeQuackBehavior((new MuteQuack())->quack(...));
+        $mallardDuck->changeQuackBehavior(new MuteQuack());
 
         $quackResultAfterChangeBehavior = $mallardDuck->quack();
 
