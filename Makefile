@@ -20,3 +20,6 @@ phpstan-check:
 
 composer-validate:
 	docker compose exec php-cli composer validate
+
+run-test:
+	docker-compose exec php-cli composer test
