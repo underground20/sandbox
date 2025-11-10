@@ -23,6 +23,13 @@ services:
         volumes:
             - ./:/var/www/app
         tty: true
+    roadrunner-app:
+        build:
+            context: .
+            dockerfile: ./docker/roadrunner/Dockerfile
+        ports:
+            - "8080:8080"
+        command: [ "rr", "serve", "-c", ".rr.yaml" ]
     postgres:
         image: postgres:16-alpine
         environment:
