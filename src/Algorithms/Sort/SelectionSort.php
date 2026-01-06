@@ -5,8 +5,8 @@ namespace App\Algorithms\Sort;
 final class SelectionSort
 {
     /**
-     * @param list<int> $elements
-     * @return list<int>
+     * @param array<int> $elements
+     * @return array<int>
      */
     public static function v1(array $elements): array
     {
@@ -21,7 +21,7 @@ final class SelectionSort
     }
 
     /**
-     * @param list<int> $elements
+     * @param array<int> $elements
      */
     public static function v2(array &$elements): void
     {
@@ -33,7 +33,7 @@ final class SelectionSort
         }
     }
 
-    /** @param list<int> $elements */
+    /** @param array<int> $elements */
     private static function findSmallestElementIndex(array $elements, int $minIndex = 0): int
     {
         $smallest = $elements[$minIndex];
@@ -53,7 +53,7 @@ final class SelectionSort
     }
 
     /**
-     * @param list<int> $elements
+     * @param array<int> $elements
      */
     private static function swap(array &$elements, int $i, int $j): void
     {

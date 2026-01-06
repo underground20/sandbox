@@ -4,7 +4,7 @@ namespace App\Patterns\Observer;
 
 final class WeatherData
 {
-    /** @var \SplObjectStorage<DisplayInterface> */
+    /** @var \SplObjectStorage<DisplayInterface, DisplayInterface> */
     private \SplObjectStorage $displays;
 
     public function __construct(

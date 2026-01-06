@@ -5,8 +5,8 @@ namespace App\Algorithms\Sort;
 final class QuickSort
 {
     /**
-     * @param list<int> $array
-     * @return list<int>
+     * @param array<int> $array
+     * @return array<int>
      */
     public static function v1(array $array): array
     {
@@ -22,8 +22,8 @@ final class QuickSort
     }
 
     /**
-     * @param list<int> $array
-     * @return list<int>
+     * @param array<int> $array
+     * @return array<int>
      */
     public static function v2(array $array): array
     {
@@ -40,7 +40,7 @@ final class QuickSort
     }
 
     /**
-     * @param list<int> $array
+     * @param array<int> $array
      */
     public static function v3(array &$array): void
     {
@@ -51,6 +51,7 @@ final class QuickSort
         self::quickSort($array, 0, count($array) - 1);
     }
 
+    /** @param array<int> $array */
     private static function quickSort(array &$array, int $low, int $high): void
     {
         if ($low < $high) {
@@ -62,7 +63,7 @@ final class QuickSort
     }
 
     /**
-     * @param list<int> $array
+     * @param array<int> $array
      */
     private static function partition(array &$array, int $low, int $high): int
     {
@@ -85,7 +86,7 @@ final class QuickSort
     }
 
     /**
-     * @param list<int> $array
+     * @param array<int> $array
      */
     private static function swap(array &$array, int $i, int $j): void
     {

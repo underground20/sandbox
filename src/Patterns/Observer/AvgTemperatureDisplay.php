@@ -4,7 +4,7 @@ namespace App\Patterns\Observer;
 
 final class AvgTemperatureDisplay implements DisplayInterface
 {
-    /** @var list<float> */
+    /** @var non-empty-list<float> */
     private array $temperatures;
 
     public function __construct(

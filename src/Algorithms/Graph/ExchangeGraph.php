@@ -6,7 +6,7 @@ final class ExchangeGraph
 {
     /** @var array<string, Item> */
     private array $items = [];
-    /** @var array<array<string, ExchangeEdge> */
+    /** @var array<array<string, ExchangeEdge>> */
     private array $edges = [];
 
     public function addItem(Item $item): void
@@ -38,6 +38,7 @@ final class ExchangeGraph
         $this->edges[$from->name][$to->name] = $edge;
     }
 
+    /** @return array{}|array{cost: float, path: string} */
     public function findCheapest(Item $start, Item $target): array
     {
         $costs = array_fill_keys(array_keys($this->items), INF);
@@ -73,6 +74,10 @@ final class ExchangeGraph
         ];
     }
 
+    /**
+     * @param array<string, float> $costs
+     * @param array<string, bool> $visited
+     */
     private function getUnvisitedNode(array $costs, array $visited): ?string
     {
         $minCost = INF;
@@ -87,6 +92,10 @@ final class ExchangeGraph
         return $nextNode;
     }
 
+    /**
+     * @param array<string, string> $previous
+     * @return array<string>
+     */
     private function reconstructPath(array $previous, string $start, string $target): array
     {
         $path = [];
