@@ -4,37 +4,40 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5f8368fc8b376dda91f0ee90b0367930",
+    "content-hash": "c8bf7f2305896648790ba8a7001f65dc",
     "packages": [
         {
             "name": "php-ds/php-ds",
-            "version": "v1.5.0",
+            "version": "v2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-ds/polyfill.git",
-                "reference": "7b2c5f1843466d50769a0682ce6fa9ddaaa99cb4"
+                "reference": "890702aa2b2e74b027a51800b3c1f58148124d14"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-ds/polyfill/zipball/7b2c5f1843466d50769a0682ce6fa9ddaaa99cb4",
-                "reference": "7b2c5f1843466d50769a0682ce6fa9ddaaa99cb4",
+                "url": "https://api.github.com/repos/php-ds/polyfill/zipball/890702aa2b2e74b027a51800b3c1f58148124d14",
+                "reference": "890702aa2b2e74b027a51800b3c1f58148124d14",
                 "shasum": ""
             },
             "require": {
-                "ext-json": "*",
-                "php": ">=7.0"
+                "php": ">=8.2"
             },
             "provide": {
-                "ext-ds": "1.5.0"
+                "ext-ds": "2.0.0"
             },
             "require-dev": {
-                "php-ds/tests": "^1.5"
+                "php-ds/tests": "@dev",
+                "phpunit/phpunit": "^11.0"
             },
             "suggest": {
                 "ext-ds": "to improve performance and reduce memory usage"
             },
             "type": "library",
             "autoload": {
+                "files": [
+                    "src/functions.php"
+                ],
                 "psr-4": {
                     "Ds\\": "src"
                 }
@@ -49,6 +52,7 @@
                     "email": "rudolf.theunissen@gmail.com"
                 }
             ],
+            "description": "Specialized data structures as alternatives to the PHP array",
             "keywords": [
                 "data structures",
                 "ds",
@@ -57,9 +61,9 @@
             ],
             "support": {
                 "issues": "https://github.com/php-ds/polyfill/issues",
-                "source": "https://github.com/php-ds/polyfill/tree/v1.5.0"
+                "source": "https://github.com/php-ds/polyfill/tree/v2.0.1"
             },
-            "time": "2023-12-19T16:52:21+00:00"
+            "time": "2026-05-17T18:41:55+00:00"
         },
         {
             "name": "prewk/option",

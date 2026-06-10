@@ -1,28 +1,16 @@
 services:
-    nginx:
+    php-cli:
         build:
-            context: ./docker/nginx
-        volumes:
-            - ./:/var/www/app
-        ports:
-            - "8081:80"
-    php-fpm:
-        build:
-            context: ./docker/php-fpm
+            context: ./docker/php-cli
         volumes:
             - ./:/var/www/app
         environment:
             PHP_IDE_CONFIG: serverName=${SERVER_NAME}
         env_file:
             - .env
+        tty: true
         extra_hosts:
             - "host.docker.internal:host-gateway"
-    php-cli:
-        build:
-            context: ./docker/php-cli
-        volumes:
-            - ./:/var/www/app
-        tty: true
     postgres:
         image: postgres:16-alpine
         environment:
